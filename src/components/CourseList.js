@@ -98,7 +98,7 @@ const CourseList = () => {
       <FilterBar onFilterChange={handleFilterChange} />
       <Row>
         {filteredCourses.map((course) => (
-          <Col key={course.id} md={4} className="mb-4">
+          <Col key={course.id} md={6} className="mb-4">
             <CourseCard course={course} />
           </Col>
         ))}
