@@ -5,7 +5,11 @@ import PropTypes from "prop-types";
 const CourseCard = ({ course }) => {
   return (
     <Card className="h-100">
-      <a href={`https://unica.vn/${course.url_course}?aff=360685`}>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href={`https://unica.vn/${course.url_course}?aff=360685`}
+      >
         <Card.Img
           variant="top"
           src={`https://unica.vn/${course.url_thumnail}`}
