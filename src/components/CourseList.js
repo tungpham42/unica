@@ -9,6 +9,7 @@ const TOKEN = "eTg2dlAvSmJmREVHZktLWjI0enRuUT09";
 const DEFAULT_CATEGORY_ID = 1;
 
 const CourseList = () => {
+  // eslint-disable-next-line
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [error, setError] = useState(null);
