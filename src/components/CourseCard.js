@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const CourseCard = ({ course }) => {
   return (
     <Card className="h-100">
-      <a href={`https://unica.vn/${course.url_course}`}>
+      <a href={`https://unica.vn/${course.url_course}?aff=360685`}>
         <Card.Img
           variant="top"
           src={`https://unica.vn/${course.url_thumnail}`}
@@ -43,7 +43,7 @@ const CourseCard = ({ course }) => {
         </div>
         <Button
           variant="primary"
-          href={`https://unica.vn/${course.url_course}`}
+          href={`https://unica.vn/${course.url_course}?aff=360685`}
           target="_blank"
           className="mt-3 w-100"
         >

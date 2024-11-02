@@ -6,8 +6,8 @@ const FilterBar = ({ onFilterChange }) => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
-  const affId = "360685";
-  const token = "eTg2dlAvSmJmREVHZktLWjI0enRuUT09";
+  const AFFILIATE_ID = "360685";
+  const TOKEN = "eTg2dlAvSmJmREVHZktLWjI0enRuUT09";
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -26,8 +26,8 @@ const FilterBar = ({ onFilterChange }) => {
               {
                 params: {
                   category_id: category.id,
-                  aff_id: affId,
-                  token: token,
+                  aff_id: AFFILIATE_ID,
+                  token: TOKEN,
                 },
               }
             );
