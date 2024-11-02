@@ -96,6 +96,25 @@ const CourseList = () => {
   return (
     <Container className="my-4">
       <FilterBar onFilterChange={handleFilterChange} />
+      <div className="d-flex justify-content-center my-4 align-items-center">
+        <Button
+          onClick={prevPage}
+          disabled={pagination.page === 1}
+          className="me-2"
+        >
+          Trước
+        </Button>
+        <span>
+          Trang {pagination.page} trong {totalPages}
+        </span>
+        <Button
+          onClick={nextPage}
+          disabled={pagination.page === totalPages}
+          className="ms-2"
+        >
+          Sau
+        </Button>
+      </div>
       <Row>
         {filteredCourses.map((course) => (
           <Col key={course.id} md={6} className="mb-4">
@@ -103,7 +122,7 @@ const CourseList = () => {
           </Col>
         ))}
       </Row>
-      <div className="d-flex justify-content-center mt-4">
+      <div className="d-flex justify-content-center my-4 align-items-center">
         <Button
           onClick={prevPage}
           disabled={pagination.page === 1}
