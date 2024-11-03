@@ -17,7 +17,7 @@ const CourseList = () => {
     page: 1,
     categoryId: DEFAULT_CATEGORY_ID,
   });
-  const [totalPages, setTotalPages] = useState(10);
+  const [totalPages, setTotalPages] = useState(0);
 
   const fetchCourses = useCallback(async () => {
     try {

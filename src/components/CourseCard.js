@@ -51,7 +51,7 @@ const CourseCard = ({ course }) => {
           target="_blank"
           className="mt-3 w-100"
         >
-          Xem thêm
+          Xem chi tiết
         </Button>
       </Card.Body>
     </Card>
