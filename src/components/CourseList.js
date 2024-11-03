@@ -14,7 +14,7 @@ const CourseList = () => {
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [error, setError] = useState(null);
   const [pagination, setPagination] = useState({
-    page: 1,
+    page: 1, // Displayed page number (starting from 1)
     categoryId: DEFAULT_CATEGORY_ID,
   });
   const [totalPages, setTotalPages] = useState(0);
@@ -26,7 +26,7 @@ const CourseList = () => {
           category_id: pagination.categoryId,
           aff_id: AFFILIATE_ID,
           token: TOKEN,
-          page: pagination.page,
+          page: pagination.page - 1, // API request page, starting from 0
         },
       });
       setFilteredCourses(data?.data?.course || []);
@@ -36,8 +36,8 @@ const CourseList = () => {
   }, [pagination]);
 
   const fetchTotalPages = useCallback(async () => {
-    let currentPage = 1;
-    let lastPage = 1;
+    let currentPage = 0;
+    let lastPage = 0;
 
     try {
       while (true) {
@@ -57,7 +57,7 @@ const CourseList = () => {
         lastPage = currentPage;
         currentPage++;
       }
-      setTotalPages(lastPage);
+      setTotalPages(lastPage + 1); // Convert lastPage (0-based) to totalPages (1-based)
     } catch {
       setError("Error fetching total pages. Please try again later.");
     }
@@ -81,7 +81,6 @@ const CourseList = () => {
   const PaginationControls = () => {
     const pageButtons = [];
 
-    // Always show the first page button
     pageButtons.push(
       <Button
         key={1}
@@ -93,7 +92,6 @@ const CourseList = () => {
       </Button>
     );
 
-    // Show ellipsis if the current page is beyond the 3rd page
     if (pagination.page > 3) {
       pageButtons.push(
         <FontAwesomeIcon
@@ -104,7 +102,6 @@ const CourseList = () => {
       );
     }
 
-    // Display the current page, the one before, and the one after
     for (
       let i = Math.max(2, pagination.page - 1);
       i <= Math.min(totalPages - 1, pagination.page + 1);
@@ -122,7 +119,6 @@ const CourseList = () => {
       );
     }
 
-    // Show ellipsis if there are pages remaining before the last page
     if (pagination.page < totalPages - 2) {
       pageButtons.push(
         <FontAwesomeIcon
@@ -133,7 +129,6 @@ const CourseList = () => {
       );
     }
 
-    // Always show the last page button
     pageButtons.push(
       <Button
         key={totalPages}
