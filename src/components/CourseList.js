@@ -169,7 +169,7 @@ const CourseList = () => {
   return (
     <Container className="my-4">
       <FilterBar onFilterChange={handleFilterChange} />
-      <PaginationControls />
+      {totalPages > 1 && <PaginationControls />}
       <Row>
         {filteredCourses.map((course) => (
           <Col key={course.id} md={6} className="mb-4">
@@ -177,7 +177,7 @@ const CourseList = () => {
           </Col>
         ))}
       </Row>
-      <PaginationControls />
+      {totalPages > 1 && <PaginationControls />}
     </Container>
   );
 };
