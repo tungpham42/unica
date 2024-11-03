@@ -4,7 +4,7 @@ import { Form } from "react-bootstrap";
 
 const FilterBar = ({ onFilterChange }) => {
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(1);
 
   const AFFILIATE_ID = "360685";
   const TOKEN = "eTg2dlAvSmJmREVHZktLWjI0enRuUT09";
@@ -67,7 +67,11 @@ const FilterBar = ({ onFilterChange }) => {
         <Form.Label>Chọn danh mục</Form.Label>
         <Form.Select value={selectedCategory} onChange={handleCategoryChange}>
           {categories.map((category) => (
-            <option key={category.id} value={category.id}>
+            <option
+              key={category.id}
+              value={category.id}
+              selected={category.id === selectedCategory}
+            >
               {category.name}
             </option>
           ))}
