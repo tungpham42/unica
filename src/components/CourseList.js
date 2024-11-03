@@ -2,7 +2,11 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEllipsisH,
+  faArrowLeft,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import CourseCard from "./CourseCard";
 import FilterBar from "./FilterBar";
 
@@ -147,7 +151,7 @@ const CourseList = () => {
           disabled={pagination.page === 1}
           className="me-2"
         >
-          Trước
+          <FontAwesomeIcon icon={faArrowLeft} /> Trước
         </Button>
         <div className="d-flex align-items-center">{pageButtons}</div>
         <Button
@@ -155,7 +159,7 @@ const CourseList = () => {
           disabled={pagination.page === totalPages}
           className="ms-2"
         >
-          Sau
+          Sau <FontAwesomeIcon icon={faArrowRight} />
         </Button>
       </div>
     );
