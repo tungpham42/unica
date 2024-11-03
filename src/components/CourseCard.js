@@ -8,7 +8,7 @@ const CourseCard = ({ course }) => {
       <a
         target="_blank"
         rel="noreferrer"
-        href={`https://unica.vn/${course.url_course}?aff=360685`}
+        href={`https://unica.vn/${course.url_course}?aff=360685&coupon=PHAMTUNG`}
       >
         <Card.Img
           variant="top"
@@ -47,7 +47,7 @@ const CourseCard = ({ course }) => {
         </div>
         <Button
           variant="primary"
-          href={`https://unica.vn/${course.url_course}?aff=360685`}
+          href={`https://unica.vn/${course.url_course}?aff=360685&coupon=PHAMTUNG`}
           target="_blank"
           className="mt-3 w-100"
         >
